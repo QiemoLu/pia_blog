@@ -26,6 +26,6 @@ python manage.py runserver 80 # 亦可以使用nginx+uwsgi方式部署
 http://wiki.jikexueyuan.com/project/django-set-up-blog/  
 (django学习小组：博客开发实战)  
 http://www.jianshu.com/p/3bf9fb2a7e31  
-(the django book)
+(the django book)  
 (django官方文档)
 http://python.usyiyi.cn/django/index.html
