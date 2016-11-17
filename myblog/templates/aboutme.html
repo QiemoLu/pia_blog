@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% load markdown %}
+
+{% block content %}
+<div class="col-lg-8">
+        {% for about in about %}
+        <p>{{about|custom_markdown}}</p>	
+        {% endfor %}
+</div><!-- /.blog-post -->
+{% endblock content%}

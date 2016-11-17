@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% load markdown %}
+{% block content %}
+<div class="col-lg-8">
+    {% if error %}
+        <h2 class="post-title">没有相关文章题目</a></h2>
+    {% else %}
+    {% for article in search_post %}
+    <h3><a href="{% url "detail" id=article.id %}">{{ article.title }}</a></h3>
+    <hr>
+    <p>{{article.content|custom_markdown|truncatechars_html:100}}</p>
+    <a href="{% url "category" article.category%}"><span class="label label-default">{{ article.category }}</span></a>
+    <a class="btn btn-success btn-xs" href="{% url "detail" id=article.id %}">Read More >>> </a>
+    <hr>
+    {% endfor %}
+    {% endif %}
+    {% if search_post.object_list and search_post.paginator.num_pages > 1 %}
+        <div>
+            <ul class="pager">
+            {% if search_post.has_previous %}
+                <li><a href="?page={{ search_post.previous_page_number }}">上一页</a></li>
+            {% endif %}
+            {% if search_post.has_next %}
+                <li><a href="?page={{ search_post.next_page_number }}">下一页</a></li>
+            {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+    <!-- Comment -->
+</div>
+{% endblock content %}

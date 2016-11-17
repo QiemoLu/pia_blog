@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="col-lg-8">
+    {% for article in object_list %}
+    <table style="color: #2ca6cb; font-size: 25px; height: 60px">
+        <td style="color: black">{{ article.createtime|date:"Y:F j" }}日</td><td>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{% url "detail" id=article.id %}">{{ article.title }}</a></td>
+    </table>
+    {% endfor %}
+
+</div>
+{% endblock content %}
