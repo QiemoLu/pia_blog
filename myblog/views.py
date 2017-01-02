@@ -1,3 +1,4 @@
+#coding:utf-8
 from django.shortcuts import render
 from myblog.models import article
 from django.http import Http404
@@ -13,7 +14,7 @@ from django.db.models import Q
 
 def index(request):
     # all()是一个列表，需要遍历
-    postlist = article.objects.all().order_by("-createtime")  # 按照文章时间降序
+    postlist = article.objects.all().order_by("-id")  # 按照文章时间降序
     paginator = Paginator(postlist, 2)  # 每页显示2 实例化一个分页对象
     page = request.GET.get('page')  # 获取页码
     try:

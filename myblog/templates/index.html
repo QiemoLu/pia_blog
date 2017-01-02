@@ -18,6 +18,12 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/default.min.css" %}">
     <script type="text/javascript" src="{% static "js/highlight.min.js" %}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+	img{
+	width: 100%;
+	height: 100%;
+	}	
+    </style>
 </head>
 
 <body>
@@ -32,19 +38,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://127.0.0.1">blog name here</a>
+                <a class="navbar-brand" href="/">blog name here</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="http://127.0.0.1/aboutme">关于我</a>
+                        <a href="/aboutme">关于我</a>
                     </li>
                     <li>
                         <a href="https://github.com/piaokorg">Github</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1/admin">登录</a>
+                        <a href="/admin">登录</a>
                     </li>
                 </ul>
             </div>
@@ -73,7 +79,7 @@
                 <hr>
                 <!-- Post Content -->
                 {# truncatechars_html 内置过滤器显示指定行数 但不包括html标签 #}
-                <p>{{postlist.content|custom_markdown|truncatechars_html:100}}</p>
+                <p>{{postlist.content|custom_markdown|truncatechars_html:500}}</p>
                 <a href="{% url "category" postlist.category %}"><span class="label label-default">{{postlist.category}}</span></a>
                 <a class="btn btn-success btn-xs" href="{% url "detail" id=postlist.id %}">Read More >>> </a>
                 <hr>

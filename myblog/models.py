@@ -1,3 +1,4 @@
+#coding:utf-8
 from django.db import models
 # Create your models here.
 from django.contrib import admin
@@ -25,10 +26,10 @@ class article(models.Model):
 
 
 class aboutme(models.Model):
-    aboutme = models.TextField(u'关于我', max_length=500)
+    aboutme = models.TextField(u'关于我', max_length=10000)
 
     def __str__(self):
-        return self.aboutme
+        return u'关于我'
 
 
 # 创建BlogPostAdmin类，继承admin.ModelAdmin(后台)父类，以列表的形式显示BlogPost的标题和时间

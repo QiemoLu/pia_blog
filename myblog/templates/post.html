@@ -8,11 +8,13 @@
     <h3 style="color: #2ca6cb">{{post.title}}</h3>
     <!-- Author -->
     <!-- Date/Time -->
-    <p style="float: left"><span class="glyphicon glyphicon-time"></span> {{post.createtime}}</p><br>
+    <p style="float: left"><span class="glyphicon glyphicon-time"></span> {{post.createtime}}</p>
+    <a href="/admin/myblog/article/{{post.id}}/change/" style="float: right;"><span class="label label-default" style="background-color: #d32;">编辑</span></a>
+    <br>
     <hr>
     <!-- Post Content -->
     <p>{{post.content|custom_markdown}}</p>
-    <a href="{% url "category" post.category%}"><span class="label label-default">{{post.category}}</span></a>
+    <a href="{% url "category" post.category%}"><span class="label label-default" style="">{{post.category}}</span></a>
     <hr>
     <!-- Comment -->
     {% include "comment.html" %}
