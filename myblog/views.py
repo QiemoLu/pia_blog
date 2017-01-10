@@ -15,7 +15,7 @@ from django.db.models import Q
 def index(request):
     # all()是一个列表，需要遍历
     postlist = article.objects.all().order_by("-id")  # 按照文章时间降序
-    paginator = Paginator(postlist, 2)  # 每页显示2 实例化一个分页对象
+    paginator = Paginator(postlist, 4)  # 每页显示2 实例化一个分页对象
     page = request.GET.get('page')  # 获取页码
     try:
         postlist = paginator.page(page)
@@ -41,8 +41,8 @@ def about(request):
 
 def Category_list(request, category):
     try:
-        category_post = article.objects.filter(category__name__iexact=category)
-        paginator = Paginator(category_post, 2)
+        category_post = article.objects.filter(category__name__iexact=category).order_by('-id')
+        paginator = Paginator(category_post, 4)
         page = request.GET.get('page')
         try:
             category_post = paginator.page(page)
