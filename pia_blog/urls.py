@@ -18,6 +18,11 @@ from django.contrib import admin
 from myblog import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^manager/', include('backend.urls'))
+
+]
+
+urlpatterns += [
     url(r'^$', views.index),
     url(r'^(?P<id>\d+)/$', views.detail, name='detail'),
     url(r'^aboutme/$', views.about, name='aboutme'),

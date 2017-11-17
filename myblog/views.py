@@ -42,6 +42,8 @@ def about(request):
 def Category_list(request, category):
     try:
         category_post = article.objects.filter(category__name__iexact=category).order_by('-id')
+        if not category_post.exists():
+            return render(request, 'category.html', {'error': True})
         paginator = Paginator(category_post, 4)
         page = request.GET.get('page')
         try:
