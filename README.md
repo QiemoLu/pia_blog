@@ -1,7 +1,7 @@
 # pia_blog
 一个基于django的博客系统，仅实现发表文章和根据条件查询等简单功能  
 模板套用自基于https://startbootstrap.com/template-overviews/blog-post/
-测试访问地址 http://45.62.119.70:8080/
+测试访问地址 http://45.62.119.70
 ## 依赖
 python3  
 django1.10  
