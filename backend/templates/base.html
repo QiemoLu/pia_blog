@@ -26,7 +26,6 @@
 
     <!-- Custom Fonts -->
     <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -49,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">博客后台管理</a>
+                <a class="navbar-brand" href="/manager/index">博客后台管理</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -76,19 +75,13 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href=""><i class="fa fa-dashboard fa-fw"></i> 文章管理</a>
+                            <a href="/manager/index"><i class="fa fa-dashboard fa-fw"></i> 文章管理</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="/manager/category"><i class="fa fa-wrench fa-fw"></i> 标签管理</a>
+                        </li>
+                        <li>
+                            <a href="/manager/aboutme"><i class="fa fa-user fa-fw"></i> 关于我</a>
                         </li>
                <!-- /.sidebar-collapse -->
             </div>
@@ -98,7 +91,7 @@
         <div id="page-wrapper">
             {% block content %}
 
-            {% endblock %}
+            {% endblock content %}
         </div>
         <!-- /#page-wrapper -->
 

@@ -14,7 +14,7 @@ class Category(models.Model):
 
 class article(models.Model):
     title = models.CharField(u'标题', max_length=60)
-    category = models.ForeignKey(Category, verbose_name=u'标签', max_length=10, null=True)
+    category = models.ForeignKey(Category,verbose_name=u'标签',blank=True,null=True,on_delete=models.SET_NULL)
     createtime = models.DateTimeField(u'createtime', default=timezone.now)
     content = models.TextField(u'内容', blank=True, null=True)
 

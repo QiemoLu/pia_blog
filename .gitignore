@@ -1,4 +1,4 @@
-myblog/migrations
-backend/migrations
+migrations
 *.pyc
 *.so
+

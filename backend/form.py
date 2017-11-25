@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import authenticate, login
-
+from myblog.models  import Category
 
 class LoginForm(forms.Form):
     name = forms.CharField(
@@ -19,18 +19,34 @@ class LoginForm(forms.Form):
 
 class PostForm(forms.Form):
 
-    ok = ((1,'fsfsf'))
-
     title = forms.CharField(
         max_length=100,
         error_messages={'required': 'Please enter title'},
         widget=forms.TextInput(attrs={'class': 'form-control'}))
 
-    category = forms.ChoiceField(
+    category = forms.ModelChoiceField(
+        queryset = Category.objects.all(),
         error_messages={'required': 'Please enter category'},
-        widget=forms.RadioSelect(attrs={'class': 'form-control'},choices=ok))
+        widget=forms.Select(attrs={'class':
+            'form-control'},choices=()))
 
     context = forms.CharField(
         max_length=10000,
         error_messages={'required': 'Please enter context'},
+        widget=forms.Textarea(attrs={'class': 'form-control'}))
+
+
+class CategoryForm(forms.Form):
+
+    name = forms.CharField(
+        max_length=10,
+        error_messages={'required': 'can\'t notbe null'},
+        widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+
+class AboutMeForm(forms.Form):
+
+    aboutme = forms.CharField(
+        max_length=10000,
+        error_messages={'required': 'can\'t notbe null'},
         widget=forms.Textarea(attrs={'class': 'form-control'}))
